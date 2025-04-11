@@ -20,6 +20,8 @@ body {
     padding: 60px 20px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Ensures it stretches fully */
+    box-sizing: border-box; /* Prevents any padding or margins from affecting the width */
 }
 
 /* Navbar Styling */
@@ -129,6 +131,15 @@ body {
 
 /* Responsive Design for Phones */
 @media (max-width: 480px) {
+    /* Header */
+    .header {
+        padding: 40px 20px; /* Adjust the padding to fit better */
+        font-size: 18px; /* Adjust the font size if needed */
+        text-align: center;
+        width: 100%; /* Ensure the header spans the full width */
+    }
+
+    /* Product Cards */
     .product-card {
         flex: 1 1 100%; /* Make each product card take full width on small screens */
         margin-bottom: 15px;
