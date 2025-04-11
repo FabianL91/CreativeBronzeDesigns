@@ -20,8 +20,6 @@ body {
     padding: 60px 20px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    width: 100%; /* Ensures it stretches fully */
-    box-sizing: border-box; /* Prevents any padding or margins from affecting the width */
 }
 
 /* Navbar Styling */
@@ -57,66 +55,56 @@ body {
     justify-content: center;
 }
 
-/* Product Grid */
-.product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-}
-
-.product-card {
-    flex: 1 1 calc(25% - 20px); /* Adjust width for 4 items in a row */
-    margin-bottom: 20px;
-    text-align: center;
-    background-color: #fff;
-    padding: 15px;
+/* Main Content */
+.main {
+    flex: 70%;
+    background: white;
+    padding: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Prevent overflow */
-    min-height: 300px; /* Ensure enough space for content */
 }
 
-.product-card img {
-    width: 100%;
-    height: auto;
+/* Sidebar */
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    object-fit: cover; /* Ensure images cover the space without distorting */
 }
 
-.product-card img:hover {
-    transform: scale(1.05);
-}
-
-.product-card h3 {
-    margin-top: 15px;
-    font-size: 18px;
-    word-wrap: break-word; /* Ensures long text wraps correctly */
-}
-
-.product-card p {
-    margin-top: 5px;
-    font-size: 14px;
-    word-wrap: break-word; /* Ensures long descriptions wrap correctly */
-}
-
-.product-card .btn {
+/* Button Styling */
+.btn {
     display: inline-block;
-    margin-top: 15px;
     padding: 10px 20px;
     background-color: #8b5e3c;
     color: white;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
+    margin-top: 10px;
     transition: background-color 0.3s;
 }
 
-.product-card .btn:hover {
+.btn:hover {
     background-color: #6a452a;
+}
+
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
 }
 
 /* Footer */
@@ -133,35 +121,21 @@ body {
 @media (max-width: 480px) {
     /* Header */
     .header {
-        padding: 40px 20px; /* Adjust the padding to fit better */
-        font-size: 18px; /* Adjust the font size if needed */
+        padding: 40px 15px;
+        font-size: 18px;
         text-align: center;
-        width: 100%; /* Ensure the header spans the full width */
     }
 
-    /* Product Cards */
-    .product-card {
-        flex: 1 1 100%; /* Make each product card take full width on small screens */
-        margin-bottom: 15px;
-        padding: 10px;
-        min-height: 250px; /* Adjust for smaller screens */
+    /* Navbar */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 0;
     }
 
-    .product-card img {
-        max-width: 100%;
-        height: auto;
-        object-fit: contain; /* Ensure the image fits within the container */
-    }
-
-    .product-card h3, .product-card p {
-        font-size: 14px; /* Adjust font size for readability */
-    }
-
-    .btn {
-        padding: 8px 16px;
+    .navbar a {
+        padding: 12px 15px;
         font-size: 14px;
     }
-}
 
     /* Main Container */
     .container {
@@ -170,21 +144,18 @@ body {
         padding: 15px;
     }
 
-    /* Product Grid */
-    .product-grid {
-        flex-direction: column;
-        align-items: center;
+    /* Main Content */
+    .main {
+        flex: 1 1 100%;
+        margin: 15px 0;
+        padding: 20px;
     }
 
-    .product-card {
-        flex: 1 1 100%; /* Make each product card take full width on small screens */
-        margin-bottom: 15px;
-        padding: 10px;
-    }
-
-    .product-card img {
-        max-width: 100%;
-        height: auto;
+    /* Sidebar */
+    .side {
+        flex: 1 1 100%;
+        margin-top: 20px;
+        padding: 15px;
     }
 
     /* Button */
@@ -192,18 +163,36 @@ body {
         padding: 8px 16px;
         font-size: 14px;
     }
+
+    /* Gallery */
+    .gallery {
+        grid-template-columns: 1fr; /* Single column for small screens */
+        gap: 10px;
+    }
+
+    .gallery img {
+        width: 100%;
+    }
 }
 
 /* Responsive Design for Tablets */
 @media (max-width: 768px) {
     /* Adjusting the flex layout for tablets */
-    .product-grid {
+    .container {
         flex-direction: column;
+        padding: 20px;
     }
 
-    .product-card {
-        flex: 1 1 100%; /* Each product card will take 100% width on tablet screens */
-        margin-bottom: 15px;
+    /* Main Content */
+    .main {
+        padding: 25px;
+        margin: 20px 0;
+    }
+
+    /* Sidebar */
+    .side {
+        margin-top: 20px;
+        padding: 15px;
     }
 
     /* Gallery */
