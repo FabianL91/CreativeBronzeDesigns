@@ -72,6 +72,8 @@ body {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent overflow */
+    min-height: 300px; /* Ensure enough space for content */
 }
 
 .product-card img {
@@ -80,6 +82,7 @@ body {
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+    object-fit: cover; /* Ensure images cover the space without distorting */
 }
 
 .product-card img:hover {
@@ -89,11 +92,13 @@ body {
 .product-card h3 {
     margin-top: 15px;
     font-size: 18px;
+    word-wrap: break-word; /* Ensures long text wraps correctly */
 }
 
 .product-card p {
     margin-top: 5px;
     font-size: 14px;
+    word-wrap: break-word; /* Ensures long descriptions wrap correctly */
 }
 
 .product-card .btn {
@@ -124,22 +129,28 @@ body {
 
 /* Responsive Design for Phones */
 @media (max-width: 480px) {
-    /* Header */
-    .header {
-        padding: 40px 15px;
-        font-size: 18px;
+    .product-card {
+        flex: 1 1 100%; /* Make each product card take full width on small screens */
+        margin-bottom: 15px;
+        padding: 10px;
+        min-height: 250px; /* Adjust for smaller screens */
     }
 
-    /* Navbar */
-    .navbar {
-        flex-direction: column;
-        padding: 15px 0;
+    .product-card img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain; /* Ensure the image fits within the container */
     }
 
-    .navbar a {
-        padding: 12px 15px;
+    .product-card h3, .product-card p {
+        font-size: 14px; /* Adjust font size for readability */
+    }
+
+    .btn {
+        padding: 8px 16px;
         font-size: 14px;
     }
+}
 
     /* Main Container */
     .container {
